@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu de Juegos</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 class="menu-title">Menu de Juegos</h1>
+    </header>
+
+    <div class="menu">
+        <div class="menu-option">
+            <a href="space_defenders.html">
+                <img src="spaceshipIcon.png" alt="Space Defenders">
+                <label for="space_defenders">Space Defenders</label>
+            </a>
+            <div class="options">
+                <a class="play" href="space_defenders.html">Jugar</a>
+                <a class="how-to-play" href="#">Cómo Jugar</a>
+            </div>
+        </div>
+
+        <div class="menu-option">
+            <a href="wac_a_mole.html">
+                <img src="hammerIcon.png" alt="Wac-a-Mole">
+                <label for="wac_a_mole">Wac-a-Mole</label>
+            </a>
+            <div class="options">
+                <a class="play" href="wac_a_mole.html">Jugar</a>
+                <a class="how-to-play" href="#">Cómo Jugar</a>
+            </div>
+        </div>
+        
+    </div>
+
+    <footer>
+        <p>Agro-Games</p>
+    </footer>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuOptions = document.querySelectorAll('.menu-option');
+    
+        menuOptions.forEach(option => {
+            const options = option.querySelector('.options');
+            option.addEventListener('click', function () {
+                options.classList.toggle('visible');
+            });
+        });
+    });
+    </script>
+
+</html>
