@@ -78,11 +78,24 @@ window.onload = function () {
     alienEspecial2Img.src = "./alien-magenta.png";
 
     requestAnimationFrame(update);
-    document.addEventListener("keydown", moveShip);
+    document.addEventListener("keydown", handleKeyPress);
     document.addEventListener("mousemove", moveShipWithMouse);
-    document.addEventListener("keyup", shoot);
+    document.addEventListener("keyup", handleKeyUp);
     document.addEventListener("contextmenu", function (e) {
-        shoot(e);
+        shoot(e, "normal");
+    });
+ 
+    document.addEventListener("keydown", function (e) {
+        if (e.code === "ArrowLeft" || e.code === "ArrowRight") {
+            e.preventDefault(); 
+            handleMoveShip(e.code);
+        }
+    });
+
+    document.addEventListener("keyup", function (e) {
+        if (e.code === "ArrowLeft" || e.code === "ArrowRight") {
+            stopMoveShip();
+        }
     });
 }
 
@@ -129,23 +142,13 @@ function update() {
     for (let i = 0; i < bulletArray.length; i++) {
         let bullet = bulletArray[i];
         bullet.y += bulletVelocityY;
-        context.fillStyle = "white";
+        context.fillStyle = bullet.color;
         context.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
 
         for (let j = 0; j < alienArray.length; j++) {
             let alien = alienArray[j];
             if (!bullet.used && alien.alive && detectCollision(bullet, alien)) {
-                bullet.used = true;
-                alien.alive = false;
-                alienCount--;
-        
-                if (alien.tipo === "especial") {
-                    score += 300;
-                } else if (alien.tipo === "especial2") { 
-                    score += 500; 
-                } else {
-                    score += 100;
-                }
+                handleCollision(bullet, alien);
             }
         }
         
@@ -176,11 +179,26 @@ function moveShip(e) {
              ship.x;
 }
 
-function moveShipWithMouse(e) {
+/*function moveShipWithMouse(e) {
     if (gameOver) return;
 
     const mouseX = e.clientX - board.getBoundingClientRect().left; 
     ship.x = mouseX - ship.width / 2; 
+}*/
+
+function moveShipWithMouse(e) {
+    if (gameOver) return;
+
+    const mouseX = e.clientX - board.getBoundingClientRect().left;
+
+    // Ajusta la posición del disparador en función de la posición del mouse
+    ship.x = mouseX - ship.width / 2;
+
+    // Asegúrate de que el disparador no se salga del área de juego
+    ship.x = Math.max(0, Math.min(ship.x, board.width - ship.width));
+
+    context.clearRect(0, 0, board.width, board.height);
+    context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
 }
 
 function createLevel(level) {
@@ -290,4 +308,104 @@ function detectCollision(a, b) {
 function updateLevel() {
 
     createLevel(currentLevel);
+}
+
+
+/**********/
+
+function handleKeyPress(e) {
+    if (gameOver) return;
+
+    switch (e.code) {
+        case "Space":
+            handleShoot(e, "normal");
+            break;
+        case "KeyW":
+            handleShoot(e, "especial");
+            break;
+        case "KeyE":
+            handleShoot(e, "especial2");
+            break;
+    }
+}
+
+function handleKeyUp(e) {
+    if (gameOver) return;
+
+    switch (e.code) {
+        case "Space":
+        case "KeyW":
+        case "KeyE":
+            resetShoot();
+            break;
+    }
+}
+
+function resetShoot() {
+    // Restaura cualquier estado relacionado con el disparo cuando se suelta la tecla
+}
+
+function handleShoot(e, alienType) {
+    if (gameOver) {
+        return;
+    }
+
+    e.preventDefault();
+
+    let bulletColor = "white"; // Color por defecto
+
+    switch (e.code) {
+        case "Space":
+            bulletColor = "white";
+            break;
+        case "ContextMenu": // Clic derecho
+            alienType = "normal"; // Al clic derecho, se asigna el tipo "normal"
+            break;
+        case "KeyW":
+            bulletColor = "red";
+            break;
+        case "KeyE":
+            bulletColor = "blue";
+            break;
+    }
+
+    if (bulletArray.length < bulletRate) {
+        const bulletX = ship.x + shipWidth * 15 / 32;
+        const bullet = {
+            x: bulletX,
+            y: ship.y,
+            width: tileSize / 8,
+            height: tileSize / 2,
+            used: false,
+            alienType: alienType,
+            color: bulletColor
+        };
+        bulletArray.push(bullet);
+    }
+}
+
+function handleCollision(bullet, alien) {
+    bullet.used = true;
+    alien.alive = false;
+    alienCount--;
+
+    if (bullet.alienType === "normal") {
+        score += 100;
+    } else if (bullet.alienType === "especial") {
+        score += 300;
+    } else if (bullet.alienType === "especial2") {
+        score += 500;
+    }
+}
+
+function handleMoveShip(direction) {
+    if (gameOver) return;
+
+    ship.x += direction === "ArrowLeft" ? -shipVelocityX * shipSpeed : shipVelocityX * shipSpeed;
+    // Asegúrate de que el disparador no se salga del área de juego
+    ship.x = Math.max(0, Math.min(ship.x, board.width - ship.width));
+}
+
+function stopMoveShip() {
+    // Puedes implementar alguna lógica adicional aquí si es necesario
 }
