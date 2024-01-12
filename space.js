@@ -79,7 +79,11 @@ window.onload = function () {
 
     requestAnimationFrame(update);
     document.addEventListener("keydown", moveShip);
+    document.addEventListener("mousemove", moveShipWithMouse);
     document.addEventListener("keyup", shoot);
+    document.addEventListener("contextmenu", function (e) {
+        shoot(e);
+    });
 }
 
 function update() {
@@ -172,6 +176,13 @@ function moveShip(e) {
              ship.x;
 }
 
+function moveShipWithMouse(e) {
+    if (gameOver) return;
+
+    const mouseX = e.clientX - board.getBoundingClientRect().left; 
+    ship.x = mouseX - ship.width / 2; 
+}
+
 function createLevel(level) {
     const alienProbabilities = {
         normal: 0.4,
@@ -252,7 +263,8 @@ function shoot(e) {
         return;
     }
 
-    if (e.code === "Space") {
+    if (e.code === "Space" || e.button === 2) {
+        e.preventDefault();
         if (bulletArray.length < bulletRate) {
             const bulletX = ship.x + shipWidth * 15 / 32;
             const bullet = {
@@ -277,6 +289,5 @@ function detectCollision(a, b) {
 
 function updateLevel() {
 
-   
     createLevel(currentLevel);
 }
