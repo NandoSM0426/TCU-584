@@ -54,6 +54,9 @@ let gameOver = false;
 let currentLevel = 1; 
 let points = 0; 
 
+let gameStarted = false;
+let lastTimestamp;
+
 window.onload = function () {
     board = document.getElementById("board");
     board.width = boardWidth;
@@ -99,6 +102,35 @@ window.onload = function () {
     });
 }
 
+function startGame() {
+    if (!gameStarted) {
+
+            gameStarted = true;
+            lastTimestamp = performance.now();
+            requestAnimationFrame(update);
+
+            document.getElementById("startButton").style.display = "none";
+            document.getElementById("custom-dialog").style.display = "none";
+    }
+}
+
+function redirectToOtherPage() {
+    // Redirigir a otra página
+    console.log("Redirigiendo a otra página");
+    // Cambiar 'otra_pagina.html' al nombre de la otra página HTML
+    window.location.href = 'otra_pagina.html';
+}
+
+function showCustomDialog() {
+    document.getElementById("custom-dialog").style.display = "block";
+}
+
+function changePage(selectedPage) {
+    if (selectedPage) {
+        window.location.href = selectedPage;
+    }
+}
+
 function createLevel(level) {
     const alienProbabilities = {
         normal: 0.4,
@@ -140,6 +172,11 @@ function updateLevel() {
 }
 
 function update() {
+
+    if (!gameStarted) {
+        return;
+    }
+
     requestAnimationFrame(update);
 
     if (gameOver) {

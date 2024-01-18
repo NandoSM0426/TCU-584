@@ -3,13 +3,33 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport", content="width=device-width, initial-scale=1.0">
-        <title>Space Invaders</title>
+        <title>Protege la Huerta</title>
         <link rel="stylesheet" href="space.css">
-        <script src="space.js"></script>
+        <script src="space.js" defer></script>
     </head>
 
     <body>
         <h1>Protege la Huerta</h1>
+        <div id="menu" class="game-menu">
+            <button id="startButton" onclick="showCustomDialog()">Empezar</button>
+
+            <label for="pageSelect">Selecciona tu Huerta</label>
+
+            <select id="pageSelect" onchange="changePage(this.value)">
+                <option value="" selected disabled hidden>Tipos de Huertas</option>
+                <option value="space_defenders.html">Caña de Azucar</option>
+                <option value="page2.html">Page 2</option>
+                <option value="page3.html">Page 3</option>
+            </select>
+        </div>
+        
         <canvas id="board"></canvas>
+
+        <div id="custom-dialog">
+            <h2>¡Bienvenido al juego!</h2>
+            <p>Estamos en un cultivo de caña, debemos protegerlo de las malvadas Ratas de la Caña, los maqueavelicos Jobotos y el gran y poderoso Barrenador Gigante. Recuerda que para poder combatirlos tenemos el Rodentencida y Hongos.</p>
+            <button onclick="startGame()">Comenzar Juego</button>
+            <button onclick="redirectToOtherPage()">Ir a Otra Página</button>
+        </div>
     </body>
 </html>

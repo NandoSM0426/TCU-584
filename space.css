@@ -6,3 +6,30 @@ body {
 #board {
     background-color: black;
 }
+
+.game-menu {
+    margin-bottom: 20px; 
+}
+
+#custom-dialog {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+#custom-dialog h2 {
+    margin-top: 0;
+}
+
+#custom-dialog button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
