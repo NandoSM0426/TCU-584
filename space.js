@@ -115,9 +115,8 @@ function startGame() {
 }
 
 function redirectToOtherPage() {
-    // Redirigir a otra página
+    
     console.log("Redirigiendo a otra página");
-    // Cambiar 'otra_pagina.html' al nombre de la otra página HTML
     window.location.href = 'otra_pagina.html';
 }
 
@@ -390,11 +389,11 @@ function handleCollision(bullet, alien) {
     alien.alive = false;
     alienCount--;
 
-    if (bullet.alienType === "normal") {
+    if (alien.tipo === "normal" && bullet.color === "white") {
         score += 100;
-    } else if (bullet.alienType === "especial") {
+    } else if (alien.tipo === "especial" && bullet.color === "red") {
         score += 300;
-    } else if (bullet.alienType === "especial2") {
+    } else if (alien.tipo === "especial2" && bullet.color === "blue") {
         score += 500;
     }
 }

@@ -1,14 +1,39 @@
 body {
-    font-family:'Courier New', Courier, monospace;
+    font-family: Arial, sans-serif;
     text-align: center;
 }
 
+#gameTitle {
+    text-align: center;
+    color: #07f316;
+    padding: 20px;
+    transition: color 0.2s, border 0.2s, padding 0.2s; 
+}
+
+#gameTitle:hover {
+    color: #FFD700; 
+    border: 2px solid #FFD700; 
+    padding: 20px; 
+}
+
+
 #board {
     background-color: black;
+    width: 600px; 
+    height: 400px; 
+    display: inline-block;
+    margin: 20px;
+    padding: 10px;
+    border: 2px solid #2E7D32;
+    border-radius: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
 }
 
 .game-menu {
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
 
 #custom-dialog {
@@ -33,3 +58,32 @@ body {
     padding: 5px 10px;
     cursor: pointer;
 }
+
+
+#startButton, #pageSelect {
+    display: inline-block;
+    margin: 20px;
+    padding: 10px;
+    border: 2px solid #2E7D32;
+    border-radius: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background-color: #fff;
+    max-width: 200px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+}
+
+#startButton:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#startButton:focus, #pageSelect:focus {
+    outline: none;
+}
+
+#startButton:focus-within, #pageSelect:focus-within {
+    background-color: #E0E0E0;
+}
+
