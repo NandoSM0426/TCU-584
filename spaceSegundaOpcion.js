@@ -135,6 +135,10 @@ function showGameOverMessage() {
     document.getElementById("finalScore").innerText = score;
 }
 
+function redirectToIndex() {
+    window.location.href = 'index.html';
+}
+
 function restartGame() {
     document.getElementById("gameOverMessage").style.display = "none";
     gameOver = false;
@@ -143,10 +147,6 @@ function restartGame() {
     points = 0;
     
     location.reload();
-}
-
-function redirectToIndex() {
-    window.location.href = 'index.html';
 }
 
 function createLevel(level) {
