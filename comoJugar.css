@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    color: #006400; /* Verde oscuro */
+    text-align: center;
+}
+
+h2, h3 {
+    color: #006400; /* Verde oscuro */
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+#productos-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+#productos-section li {
+    margin-bottom: 10px;
+}
+
+#productos-section li span {
+    color: #006400; /* Verde oscuro */
+    font-weight: bold;
+}
+
+#plagas-section .plaga {
+    cursor: pointer;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s; /* Agregamos la transición solo para el color de fondo */
+}
+/*
+#plagas-section .plaga h3 {
+    color: #006400; 
+}
+
+#plagas-section .plaga:hover {
+    background-color: #006400; 
+}
+
+#plagas-section .plaga:hover h3 {
+    color: #ffffff; 
+}
+
+*/
+
+#plagas-section .plaga {
+    cursor: pointer;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s; /* Agregamos la transición solo para el color de fondo */
+}
+
+#plagas-section .plaga h3 {
+    color: #006400; /* Mantenemos el color del texto verde oscuro por defecto */
+}
+
+#plagas-section .plaga p {
+    color: #000200; /* Mantenemos el color del texto verde oscuro por defecto */
+}
+
+#plagas-section .plaga:hover {
+    background-color: #006400; /* Cambiamos el color de fondo al pasar el ratón */
+}
+
+#plagas-section .plaga:hover h3, #plagas-section .plaga:hover p {
+    color: #ffffff; /* Cambiamos el color del texto a blanco al pasar el ratón */
+}
+
+.boton-ir-otra-pagina {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #8FDB54; /* Verde claro */
+    color: #fff; /* Texto blanco */
+    border: 2px solid #4CAF50; /* Borde del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Transición de color al pasar el ratón */
+}
+
+/* Cambio de color al pasar el ratón */
+.boton-ir-otra-pagina:hover {
+    background-color: #4CAF50; /* Verde oscuro */
+}

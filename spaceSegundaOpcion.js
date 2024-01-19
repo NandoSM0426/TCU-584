@@ -118,7 +118,7 @@ function startGame() {
 function redirectToOtherPage() {
     
     console.log("Redirigiendo a otra página");
-    window.location.href = 'otra_pagina.html';
+    window.location.href = 'space_defenders_caña.html';
 }
 
 function showCustomDialog() {
@@ -268,16 +268,6 @@ function update() {
     context.fillText("Points: " + points, 5, 40); 
     context.fillText("Level: " + currentLevel, 5, 60); 
 
-
-    if(currentLevel > 2){
-
-        if (points > alienCount * 100) {
-            alert("No has alcanzado el puntaje necesario para continuar\nRequerías de " + alienCount * 100 + " puntos para continuar");
-            restartGame();
-            return;
-        }
-
-    }
 }
 
 function handleMoveShip(direction) {

@@ -22,6 +22,12 @@ header {
 }
 
 .menu-option {
+    text-align: center;
+    width: 200px;
+
+}
+
+.menu-option {
     display: inline-block;
     margin: 20px;
     padding: 10px;

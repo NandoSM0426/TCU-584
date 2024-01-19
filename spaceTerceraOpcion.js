@@ -117,7 +117,7 @@ function startGame() {
 function redirectToOtherPage() {
     
     console.log("Redirigiendo a otra página");
-    window.location.href = 'otra_pagina.html';
+    window.location.href = 'space_defenders_caña.html';
 }
 
 function showCustomDialog() {
