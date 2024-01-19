@@ -56,6 +56,7 @@ let points = 0;
 
 let gameStarted = false;
 let lastTimestamp;
+let firstPlay = true;
 
 window.onload = function () {
     board = document.getElementById("board");
@@ -135,10 +136,6 @@ function showGameOverMessage() {
     document.getElementById("finalScore").innerText = score;
 }
 
-function redirectToIndex() {
-    window.location.href = 'index.html';
-}
-
 function restartGame() {
     document.getElementById("gameOverMessage").style.display = "none";
     gameOver = false;
@@ -147,6 +144,10 @@ function restartGame() {
     points = 0;
     
     location.reload();
+}
+
+function redirectToIndex() {
+    window.location.href = 'index.html';
 }
 
 function createLevel(level) {
@@ -187,6 +188,7 @@ function createLevel(level) {
 function updateLevel() {
 
     createLevel(currentLevel);
+
 }
 
 function update() {
@@ -265,6 +267,17 @@ function update() {
     context.fillText("Score: " + score, 5, 20);
     context.fillText("Points: " + points, 5, 40); 
     context.fillText("Level: " + currentLevel, 5, 60); 
+
+
+    if(currentLevel > 2){
+
+        if (points > alienCount * 100) {
+            alert("No has alcanzado el puntaje necesario para continuar\nRequerías de " + alienCount * 100 + " puntos para continuar");
+            restartGame();
+            return;
+        }
+
+    }
 }
 
 function handleMoveShip(direction) {
