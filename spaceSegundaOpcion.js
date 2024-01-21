@@ -72,14 +72,14 @@ window.onload = function () {
     }
 
     alienImg = new Image();
-    alienImg.src = "./Imagenes_ProtegeLaHuerta/alien.png";
+    alienImg.src = "Imagenes_ProtegeLaHuerta/minador de hojas.png";
     createLevel(currentLevel); 
 
     alienEspecialImg = new Image();
-    alienEspecialImg.src = "./Imagenes_ProtegeLaHuerta/alien-yellow.png";
+    alienEspecialImg.src = "Imagenes_ProtegeLaHuerta/trip.png";
 
     alienEspecial2Img = new Image();
-    alienEspecial2Img.src = "./Imagenes_ProtegeLaHuerta/alien-magenta.png";
+    alienEspecial2Img.src = "Imagenes_ProtegeLaHuerta/mosca blanca.png";
 
     requestAnimationFrame(update);
     document.addEventListener("keydown", handleKeyPress);
