@@ -74,8 +74,6 @@ footer {
     padding: 10px;
 }
 
-/*******/
-
 .options {
     display: none;
     position: absolute;
@@ -83,6 +81,9 @@ footer {
     border: 1px solid #2E7D32;
     border-radius: 5px;
     z-index: 1;
+    width: 100%; 
+    top: 100%; 
+    left: 0; 
 }
 
 .menu-option:hover .options {
@@ -129,3 +130,26 @@ footer {
     background-color: #3E9838;
 }
 
+.world-image {
+
+    max-width: 100% !important;
+    height: auto !important;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.back-to-home-button {
+    background-color: #2E7D32;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 40px auto 20px;
+}
+
+.back-to-home-button:hover {
+    background-color: #3E9838;
+}
