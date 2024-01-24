@@ -24,7 +24,6 @@ var multiplierDuration = 5;
 window.onload = function() {
     startGame();
 
-    //1/10th of a second
     window.setInterval(function(){
         crushCandy();
         slideCandy();
@@ -35,25 +34,24 @@ window.onload = function() {
 }
 
 function randomCandy() {
-    return candies[Math.floor(Math.random() * candies.length)]; //0 - 5.99
+    return candies[Math.floor(Math.random() * candies.length)]; 
 }
 
 function startGame() {
     for (let r = 0; r < rows; r++) {
         let row = [];
         for (let c = 0; c < columns; c++) {
-            // <img id="0-0" src="./images/Red.png">
+            
             let tile = document.createElement("img");
             tile.id = r.toString() + "-" + c.toString();
             tile.src = "./images/" + randomCandy() + ".png";
 
-            //DRAG FUNCTIONALITY
-            tile.addEventListener("dragstart", dragStart); //click on a candy, initialize drag process
-            tile.addEventListener("dragover", dragOver);  //clicking on candy, moving mouse to drag the candy
-            tile.addEventListener("dragenter", dragEnter); //dragging candy onto another candy
-            tile.addEventListener("dragleave", dragLeave); //leave candy over another candy
-            tile.addEventListener("drop", dragDrop); //dropping a candy over another candy
-            tile.addEventListener("dragend", dragEnd); //after drag process completed, we swap candies
+            tile.addEventListener("dragstart", dragStart);
+            tile.addEventListener("dragover", dragOver);  
+            tile.addEventListener("dragenter", dragEnter); 
+            tile.addEventListener("dragleave", dragLeave); 
+            tile.addEventListener("drop", dragDrop); 
+            tile.addEventListener("dragend", dragEnd); 
 
             document.getElementById("board").append(tile);
             row.push(tile);
@@ -65,7 +63,6 @@ function startGame() {
 }
 
 function dragStart() {
-    //this refers to tile that was clicked on for dragging
     currTile = this;
 }
 
@@ -82,7 +79,6 @@ function dragLeave() {
 }
 
 function dragDrop() {
-    //this refers to the target tile that was dropped on
     otherTile = this;
 }
 
@@ -92,7 +88,7 @@ function dragEnd() {
         return;
     }
 
-    let currCoords = currTile.id.split("-"); // id="0-0" -> ["0", "0"]
+    let currCoords = currTile.id.split("-");
     let r = parseInt(currCoords[0]);
     let c = parseInt(currCoords[1]);
 
@@ -133,7 +129,6 @@ function crushCandy() {
 }
 
 function crushThree() {
-    //check rows
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns-2; c++) {
             let candy1 = board[r][c];
@@ -148,7 +143,6 @@ function crushThree() {
         }
     }
 
-    //check columns
     for (let c = 0; c < columns; c++) {
         for (let r = 0; r < rows-2; r++) {
             let candy1 = board[r][c];
@@ -165,7 +159,7 @@ function crushThree() {
 }
 
 function crushFour() {
-    // Check rows for four candies
+
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns - 3; c++) {
             let candy1 = board[r][c];
@@ -183,12 +177,12 @@ function crushFour() {
                 candy2.src = "./images/blank.png";
                 candy3.src = "./images/blank.png";
                 candy4.src = "./images/blank.png";
-                score += 40; // Adjust the score accordingly
+                score += 40; 
             }
         }
     }
 
-    // Check columns for four candies
+
     for (let c = 0; c < columns; c++) {
         for (let r = 0; r < rows - 3; r++) {
             let candy1 = board[r][c];
@@ -206,14 +200,14 @@ function crushFour() {
                 candy2.src = "./images/blank.png";
                 candy3.src = "./images/blank.png";
                 candy4.src = "./images/blank.png";
-                score += 40; // Adjust the score accordingly
+                score += 40; 
             }
         }
     }
 }
 
 function crushFive() {
-    // Check rows for five candies
+
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns - 4; c++) {
             let candy1 = board[r][c];
@@ -234,12 +228,12 @@ function crushFive() {
                 candy3.src = "./images/blank.png";
                 candy4.src = "./images/blank.png";
                 candy5.src = "./images/blank.png";
-                score += 50; // Adjust the score accordingly
+                score += 50; 
             }
         }
     }
 
-    // Check columns for five candies
+
     for (let c = 0; c < columns; c++) {
         for (let r = 0; r < rows - 4; r++) {
             let candy1 = board[r][c];
@@ -260,14 +254,14 @@ function crushFive() {
                 candy3.src = "./images/blank.png";
                 candy4.src = "./images/blank.png";
                 candy5.src = "./images/blank.png";
-                score += 50; // Adjust the score accordingly
+                score += 50;
             }
         }
     }
 }
 
 function checkValid() {
-    //check rows
+
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns-2; c++) {
             let candy1 = board[r][c];
@@ -279,7 +273,7 @@ function checkValid() {
         }
     }
 
-    //check columns
+
     for (let c = 0; c < columns; c++) {
         for (let r = 0; r < rows-2; r++) {
             let candy1 = board[r][c];
@@ -376,10 +370,10 @@ function enableColorBombPowerUp() {
     }
 }
 
-// Add this function to use the Color Bomb power-up
+
 function useColorBombPowerUp() {
     if (colorBombPowerUpEnabled) {
-        // Remove all candies of a specific color (randomly chosen)
+
         let colorToRemove = candies[Math.floor(Math.random() * candies.length)];
 
         for (let r = 0; r < rows; r++) {
@@ -390,15 +384,14 @@ function useColorBombPowerUp() {
             }
         }
 
-        score -= colorBombPowerUpCost; // Deduct score for using the power-up
-        colorBombPowerUpEnabled = false; // Disable the power-up after use
+        score -= colorBombPowerUpCost; 
+        colorBombPowerUpEnabled = false; 
     }
 }
 
-// Modify checkPowerUps function to enable power-ups based on both score and game conditions
+
 function checkPowerUps() {
-    // You can implement your own logic for when to enable power-ups.
-    // For example, enable power-ups every 400 points.
+
     if (score >= colorBombPowerUpCost) {
         enableColorBombPowerUp();
     }
