@@ -3,18 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="C:\Universidad\2023\Ciclo II\Archivos\TCU\TC-584\Aplicacion\styles.css">
-    <script src="AlimentaMatch/menuAlimentaMatch.js"></script>
+    <link rel="stylesheet" href="styles.css"> <!-- Ajusta la ruta a tu archivo CSS -->
     <title>Niveles de AlimentaMatch</title>
+    <style>
+        /* Estilos adicionales */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .menu-option {
+            text-align: center;
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .menu-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .world-image {
+            width: 100px; /* Ajusta el tamaño de los iconos según tu preferencia */
+            height: 100px;
+        }
+
+        .menu-option label {
+            display: block;
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .options {
+            margin-top: 10px;
+        }
+
+        .options a {
+            display: block;
+            margin-bottom: 5px;
+            text-decoration: none;
+            color: #666;
+            font-size: 16px;
+        }
+
+        .back-to-home-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-to-home-button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
 
 <header>
-    <h1 class="menu-title">Niveles de AlimentaMatch</h1>
+    <h1 class="menu-title" style="text-align: center; padding-top: 50px;">Niveles de AlimentaMatch</h1>
 </header>
 
 <div class="menu">
-    <div class="menu-option" id="world1">
+    <div class="menu-option">
         <img src="images/fruta.png" alt="World 1 Image" class="world-image">
         <label>Primer Mundo</label>
         <div class="options">
@@ -23,32 +101,29 @@
         </div>
     </div>
 
-    <div class="menu-option" id="world2">
-        <img src="images/mandioca.png" alt="World 1 Image" class="world-image">
+    <div class="menu-option">
+        <img src="images/mandioca.png" alt="World 2 Image" class="world-image">
         <label>Segundo Mundo</label>
         <div class="options">
             <a class="play" href="alimentaMatch3.html">Leguminosas</a>
-            <a class="play" href="alimentaMatch4.html">Tuberculos</a>
+            <a class="play" href="alimentaMatch4.html">Tubérculos</a>
         </div>
     </div>
 
-    <div class="menu-option" id="world2">
-        <img src="images/girasol.png" alt="World 1 Image" class="world-image">
+    <div class="menu-option">
+        <img src="images/girasol.png" alt="World 3 Image" class="world-image">
         <label>Tercer Mundo</label>
         <div class="options">
             <a class="play" href="alimentaMatch5.html">Hortalizas</a>
             <a class="play" href="alimentaMatch6.html">Oleaginosas</a>
         </div>
     </div>
-
-    
 </div>
+
 <button class="back-to-home-button" onclick="window.location.href='../index.html'">Volver al inicio</button>
 
-
 <footer>
-    <p>Agro-Games</p>
-    
+    <p>Agro-Games &copy; 2024</p>
 </footer>
 
 </body>
