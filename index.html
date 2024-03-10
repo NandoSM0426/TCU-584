@@ -14,8 +14,10 @@
     <div class="menu">
         <div class="menu-option">
             <a href="space_defenders.html">
-                <img src="Imagenes_MenuPrincipal/quimico.png" alt="Space Defenders">
-                <label for="space_defenders">Protege la Huerta</label>
+                <div class="icon-container">
+                    <img src="Imagenes_MenuPrincipal/quimico.png" alt="Space Defenders">
+                </div>
+                <h2>Protege la Huerta</h2>
             </a>
             <div class="options">
                 <a class="play" href="space_defenders.html">Jugar</a>
@@ -25,8 +27,10 @@
 
         <div class="menu-option">
             <a href="AlimentaMatch/menuAlimentaMatch.html">
-                <img src="Imagenes_MenuPrincipal/redes-sociales.png" alt="AlimentaMatch">
-                <label for="alimentaMatc">AlimentaMatch</label>
+                <div class="icon-container">
+                    <img src="Imagenes_MenuPrincipal/redes-sociales.png" alt="AlimentaMatch">
+                </div>
+                <h2>AlimentaMatch</h2>
             </a>
             <div class="options">
                 <a class="play" href="AlimentaMatch/menuAlimentaMatch.html">Jugar</a>
@@ -36,8 +40,10 @@
 
         <div class="menu-option">
             <a href="ecoClasificacion/ecoClasificacion.html">
-                <img src="Imagenes_MenuPrincipal/caja-de-reciclaje.png" alt="ecoClasificacion">
-                <label for="alimentaMatc">EcoClasificacion</label>
+                <div class="icon-container">
+                    <img src="Imagenes_MenuPrincipal/caja-de-reciclaje.png" alt="ecoClasificacion">
+                </div>
+                <h2>EcoClasificacion</h2>
             </a>
             <div class="options">
                 <a class="play" href="ecoClasificacion/ecoClasificacion.html">Jugar</a>
@@ -51,18 +57,4 @@
         <p>En el campo, cada surco es una historia de acción: Siembra el futuro, cosecha la victoria.</p>
     </footer>
 </body>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const menuOptions = document.querySelectorAll('.menu-option');
-    
-        menuOptions.forEach(option => {
-            const options = option.querySelector('.options');
-            option.addEventListener('click', function () {
-                options.classList.toggle('visible');
-            });
-        });
-    });
-    </script>
-
 </html>
