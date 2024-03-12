@@ -1,4 +1,4 @@
-var candies = ["banana", "coco", "fresa", "mora", "naranja", "pera"];back
+var candies = ["banana", "coco", "fresa", "mora", "naranja", "pera"];
 var board = [];
 var rows = 9;
 var columns = 9;

@@ -28,7 +28,7 @@ var targetScore = 1500;
 var timerInterval;
 
 window.onload = function() {
-    
+    startGame();
 
 
     window.setInterval(function(){
