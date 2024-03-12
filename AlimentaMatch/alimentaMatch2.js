@@ -1,4 +1,4 @@
-var candies = ["Blue", "Orange", "Green", "Yellow", "Red", "Purple"];
+var candies = ["ajo", "brocoli", "maiz", "mora", "sandia", "zana"];
 var board = [];
 var rows = 9;
 var columns = 9;

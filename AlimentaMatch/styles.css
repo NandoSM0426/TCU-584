@@ -1,0 +1,114 @@
+body2 {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    min-height: 100vh; /* Para ocupar al menos toda la altura de la ventana del navegador */
+    display: flex;
+    flex-direction: column;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url('images/FFF.png'); /* Cambia 'ruta/a/la/imagen/fondo.jpg' por la ruta de tu imagen de fondo */
+    background-size: contain; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+    background-position: center; /* Centra la imagen en el fondo */
+}
+
+header {
+    background-color: #4CAF50;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.menu-title {
+    color: white;
+    margin: 0;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.menu-option {
+    margin: 20px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu-option a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.icon-container {
+    border: 4px solid #4CAF50;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-option img {
+    width: 100px;
+    height: 100px;
+}
+
+.menu-option h2 {
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+.options {
+    margin-bottom: 20px;
+}
+
+.options a {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.options a:hover {
+    background-color: #45a049;
+}
+
+footer {
+    background-color: #4CAF50;
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+    width: 100%;
+    margin-top: auto; /* Para fijar el pie de página en la parte inferior */
+}
+.back-to-home-button {
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+    background-color: green; /* Color verde */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    display: block; /* Mostrar como bloque para centrarlo */
+    margin: 20px auto; /* Centrar horizontalmente */
+}

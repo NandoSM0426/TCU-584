@@ -1,7 +1,6 @@
-
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #d4f7dc; /* Verde claro para el fondo */
     margin: 0;
     padding: 0;
 }
@@ -13,38 +12,37 @@ body {
 }
 
 h1, h2 {
-    color: #333;
+    color: #0e8f4f; /* Verde oscuro para los títulos */
+    text-align: center; /* Centrar los títulos */
 }
 
 section {
-    background-color: #fff;
-    border-radius: 5px;
+    background-color: #ffffff; /* Blanco para las secciones */
+    border-radius: 10px; /* Bordes redondeados */
     padding: 20px;
     margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
-
 
 ul, ol {
     padding-left: 20px;
 }
-
 
 img {
     max-width: 100%;
     height: auto;
     display: block;
     margin: 20px auto;
-    border-radius: 5px;
+    border-radius: 10px; /* Bordes redondeados */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
 
 footer {
     text-align: center;
     margin-top: 20px;
     padding: 20px 0;
-    background-color: #333;
-    color: #fff;
+    background-color: #0e8f4f; /* Verde oscuro para el pie de página */
+    color: #fff; /* Texto blanco */
 }
 
 #nutritional-info {
@@ -55,20 +53,20 @@ footer {
 
 .food-category {
     width: 45%;
-    background-color: #fff;
-    border-radius: 10px;
+    background-color: #ffffff; /* Blanco para las categorías de alimentos */
+    border-radius: 10px; /* Bordes redondeados */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin-bottom: 20px;
 }
 
 .food-category h3 {
-    color: #333;
+    color: #0e8f4f; /* Verde oscuro para los nombres de categorías */
     margin-top: 0;
 }
 
 .food-category p {
-    color: #555;
+    color: #333; /* Texto oscuro */
 }
 
 .food-category img {

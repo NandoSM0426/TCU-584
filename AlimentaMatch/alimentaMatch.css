@@ -1,7 +1,8 @@
 body {
-    background: url("images/background.jpeg") no-repeat center center fixed;
+    background-image: url('images/fondo2.jpg');
     background-size: cover;
-    font-family: Arial, Helvetica, sans-serif;
+    background-position: center;
+    flex-direction: column;
     color: white;
     text-align: center;
 }
