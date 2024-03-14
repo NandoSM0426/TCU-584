@@ -72,6 +72,9 @@ footer {
 .food-category img {
     display: block;
     margin: 0 auto;
-    border-radius: 50%;
+    width: 350px; /* Tamaño deseado */
+    height: 250px; /* Tamaño deseado */
+    border-radius: 20px; /* Bordes redondeados */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
+
