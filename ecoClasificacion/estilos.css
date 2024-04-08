@@ -75,3 +75,33 @@ footer {
     border-radius: 50%;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
+
+.botones {
+    background-color: #4CAF50; /* Color de fondo verde */
+    border: none; /* Sin borde */
+    color: white; /* Color del texto blanco */
+    padding: 15px 32px; /* Espaciado interno */
+    text-align: center; /* Alineación del texto al centro */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Mostrar como un bloque en línea */
+    font-size: 16px; /* Tamaño de fuente */
+    margin: 4px 2px; /* Margen exterior */
+    cursor: pointer; /* Cursor de tipo puntero al pasar sobre él */
+    border-radius: 8px; /* Borde redondeado */
+}
+
+/* Estilos para el botón verde al pasar el cursor sobre él */
+.botones:hover {
+    background-color: #45a049; /* Color de fondo verde oscuro */
+}
+
+
+div{
+
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+
+}
