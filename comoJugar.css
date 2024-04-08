@@ -1,19 +1,40 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Color de fondo suave */
+}
+
+header {
+    background-color: #65923b; /* Verde musgo */
+    color: #fff; /* Texto blanco */
+    text-align: center;
+    padding: 20px 0;
 }
 
 h1 {
-    color: #006400; /* Verde oscuro */
-    text-align: center;
+    margin: 0;
+}
+
+main {
+    padding: 20px;
 }
 
 h2, h3 {
     color: #006400; /* Verde oscuro */
 }
 
-section {
+.image-container {
+    display: flex;
+    justify-content: center;
     margin-bottom: 20px;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 #productos-section ul {
@@ -34,30 +55,7 @@ section {
     cursor: pointer;
     border: 1px solid #ddd;
     padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s; /* Agregamos la transición solo para el color de fondo */
-}
-/*
-#plagas-section .plaga h3 {
-    color: #006400; 
-}
-
-#plagas-section .plaga:hover {
-    background-color: #006400; 
-}
-
-#plagas-section .plaga:hover h3 {
-    color: #ffffff; 
-}
-
-*/
-
-#plagas-section .plaga {
-    cursor: pointer;
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     border-radius: 5px;
     transition: background-color 0.3s; /* Agregamos la transición solo para el color de fondo */
 }
@@ -67,7 +65,7 @@ section {
 }
 
 #plagas-section .plaga p {
-    color: #000200; /* Mantenemos el color del texto verde oscuro por defecto */
+    color: #000; /* Mantenemos el color del texto negro por defecto */
 }
 
 #plagas-section .plaga:hover {
@@ -76,6 +74,11 @@ section {
 
 #plagas-section .plaga:hover h3, #plagas-section .plaga:hover p {
     color: #ffffff; /* Cambiamos el color del texto a blanco al pasar el ratón */
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
 }
 
 .boton-ir-otra-pagina {
