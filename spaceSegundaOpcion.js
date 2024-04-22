@@ -8,8 +8,8 @@ let boardHeight = tileSize * rows;
 let context;
 
 // Ship
-let shipWidth = tileSize * 2;
-let shipHeight = tileSize;
+let shipWidth = 65 ;
+let shipHeight = 65 ;
 let shipX = tileSize * columns / 2 - tileSize;
 let shipY = tileSize * rows - tileSize * 2;
 
