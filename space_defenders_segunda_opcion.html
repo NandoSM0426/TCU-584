@@ -1,52 +1,90 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport", content="width=device-width, initial-scale=1.0">
-        <title>Protege la Huerta</title>
-        <link rel="stylesheet" href="space.css">
-        <script src="spaceSegundaOpcion.js" defer></script>
-    </head>
 
-    <body>
-        <header><h1 id="gameTitle">Protege la Huerta</h1></header>
-        <h2>¡Adelante, a jugar!</h2>
-        <div id="menu" class="game-menu">
-            <button id="startButton" onclick="showCustomDialog()">Empezar</button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" , content="width=device-width, initial-scale=1.0">
+    <title>Protege la Huerta</title>
+    <link rel="stylesheet" href="space.css">
+    <script src="spaceSegundaOpcion.js" defer></script>
+</head>
 
-            
-                <select id="pageSelect" onchange="changePage(this.value)">
+<body>
+    <header>
+        <h1 id="gameTitle">Protege la Huerta</h1>
+    </header>
+    <h2>¡Adelante, a jugar!</h2>
+    <div id="menu" class="game-menu">
+        <button id="startButton" onclick="showCustomDialog()">Empezar</button>
+
+
+        <select id="pageSelect" onchange="changePage(this.value)">
             <option value="" selected disabled hidden>Tipos de Huertas</option>
             <option value="space_defenders.html">Caña de Azucar</option>
             <option value="space_defenders_segunda_opcion.html">Melon</option>
-                 </select>
-            
+        </select>
 
 
-            <button id="goToIndexButton" onclick="redirectToIndex()">Volver</button>
 
+        <button id="goToIndexButton" onclick="redirectToIndex()">Volver</button>
+
+    </div>
+
+    <div class="juegoYmini">
+        <div class="miniInstrucciones" id="PrimerNivel">
+            Instrucciones de disparo:
+            <ul>
+                <li>
+                    <img src="Imagenes_ProtegeLaHuerta/raton .png" alt="Rata de la Caña" width="50"> Ratas de la Caña
+                    <img src="Imagenes_ProtegeLaHuerta/espacio.png" width="40" height="40">
+                </li>
+                <li><img src="Imagenes_ProtegeLaHuerta/gusano.png" alt="Joboto" width="50"> Jobotos
+                    <img src="Imagenes_ProtegeLaHuerta/tecla-w.png" alt="Tecla W" width="30">
+                </li>
+                <li><img src="Imagenes_ProtegeLaHuerta/Sprite-0005.png" alt="Barrenador Gigante" width="50"> Barrenador
+                    <img src="Imagenes_ProtegeLaHuerta/tecla-e.png" alt="Tecla E" width="30">
+                </li>
+            </ul>
         </div>
-        
         <canvas id="board"></canvas>
-
-        <div id="custom-dialog">
-            <h2>¡Agente Melón: Protocolo Frutífero!</h2>
-            <p>
-                ¡Bienvenido a 'Agente Melón: Protocolo Frutífero'! Protege la invaluable plantación de melones de las plagas,
-                como la temible Mosca Blanca, el astuto Trips y el destructivo Minador de la Hoja.
-                Equipado con tecnología de punta, despliega estratégicamente tus recursos para detener la invasión y salvar los melones.
-                En esta emocionante misión, enfrentarás astucia, acción y, por supuesto, la defensa del cultivo.
-                ¡Prepárate para una aventura llena de intriga y sabores en este juego de agentes secretos agrícolas!
-
-            </p>
-            <button onclick="startGame()">Comenzar Juego</button>
-            <button onclick="redirectToOtherPage()">Aprender Como Jugar</button>
+        <div class="miniInstrucciones" id="SegundoNivel">
+            Instrucciones de disparo:
+            <ul>
+                <li>
+                    <img src="Imagenes_ProtegeLaHuerta/minador de hojas.png" alt="Rata de la Caña" width="50"> Minador de hojas
+                    <img src="Imagenes_ProtegeLaHuerta/espacio.png" width="40" height="40">
+                </li>
+                <li><img src="Imagenes_ProtegeLaHuerta/trip.png" alt="Joboto" width="50"> Trip
+                    <img src="Imagenes_ProtegeLaHuerta/tecla-w.png" alt="Tecla W" width="30">
+                </li>
+                <li><img src="Imagenes_ProtegeLaHuerta/mosca blanca.png" alt="Barrenador Gigante" width="50"> Mosca blanca
+                    <img src="Imagenes_ProtegeLaHuerta/tecla-e.png" alt="Tecla E" width="30">
+                </li>
+            </ul>
         </div>
+    </div>
 
-        <div id="gameOverMessage" style="display: none;">
-            <h1>¡Fin del juego!</h1>
-            <p>Tu puntuación final es: <span id="finalScore"></span></p>
-            <button id="restartButton" onclick="restartGame()">Reiniciar Juego</button>
-        </div>
-    </body>
+    <div id="custom-dialog">
+        <h2>¡Agente Melón: Protocolo Frutífero!</h2>
+        <p>
+            ¡Bienvenido a 'Agente Melón: Protocolo Frutífero'! Protege la invaluable plantación de melones de las
+            plagas,
+            como la temible Mosca Blanca, el astuto Trips y el destructivo Minador de la Hoja.
+            Equipado con tecnología de punta, despliega estratégicamente tus recursos para detener la invasión y salvar
+            los melones.
+            En esta emocionante misión, enfrentarás astucia, acción y, por supuesto, la defensa del cultivo.
+            ¡Prepárate para una aventura llena de intriga y sabores en este juego de agentes secretos agrícolas!
+
+        </p>
+        <button onclick="startGame()">Comenzar Juego</button>
+        <button onclick="redirectToOtherPage()">Aprender Como Jugar</button>
+    </div>
+
+    <div id="gameOverMessage" style="display: none;">
+        <h1>¡Fin del juego!</h1>
+        <p>Tu puntuación final es: <span id="finalScore"></span></p>
+        <button id="restartButton" onclick="restartGame()">Reiniciar Juego</button>
+    </div>
+</body>
+
 </html>

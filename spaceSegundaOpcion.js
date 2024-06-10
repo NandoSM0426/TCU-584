@@ -410,17 +410,25 @@ function detectCollision(a, b) {
 
 function handleCollision(bullet, alien) {
     bullet.used = true;
-    alien.alive = false;
-    alienCount--;
+    
+    // Verificar si el tipo de bala coincide con el tipo de alienígena
+    if ((alien.tipo === "normal" && bullet.alienType === "normal") ||
+        (alien.tipo === "especial" && bullet.alienType === "especial") ||
+        (alien.tipo === "especial2" && bullet.alienType === "especial2")) {
+        
+        alien.alive = false;
+        alienCount--;
 
-    if (alien.tipo === "normal" && bullet.color === "white") {
-        score += 100;
-    } else if (alien.tipo === "especial" && bullet.color === "red") {
-        score += 300;
-    } else if (alien.tipo === "especial2" && bullet.color === "blue") {
-        score += 500;
+        if (bullet.alienType === "normal") {
+            score += 100;
+        } else if (bullet.alienType === "especial") {
+            score += 300;
+        } else if (bullet.alienType === "especial2") {
+            score += 500;
+        }
     }
 }
+
 
 function handleKeyPress(e) {
     if (gameOver) return;

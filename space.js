@@ -8,8 +8,8 @@ let boardHeight = tileSize * rows;
 let context;
 
 // Ship
-let shipWidth = 65 ;
-let shipHeight = 65 ;
+let shipWidth = 65;
+let shipHeight = 65;
 let shipX = tileSize * columns / 2 - tileSize;
 let shipY = tileSize * rows - tileSize * 2;
 
@@ -18,12 +18,12 @@ let ship = {
     y: shipY,
     width: shipWidth,
     height: shipHeight
-}
+};
 
 let shipImg;
 let shipVelocityX = tileSize;
-let shipSpeed = 2; 
-let bulletRate = 2; 
+let shipSpeed = 2;
+let bulletRate = 2;
 
 // Aliens
 let alienArray = [];
@@ -38,7 +38,7 @@ let alienColumns = 3;
 let alienCount = 0;
 let alienVelocityX = 1;
 
-let alienEspecialImg; 
+let alienEspecialImg;
 let alienEspecial2Img;
 let alienEspecialWidth = tileSize * 2;
 let alienEspecialHeight = tileSize;
@@ -51,8 +51,8 @@ let bulletVelocityY = -10;
 
 let score = 0;
 let gameOver = false;
-let currentLevel = 1; 
-let points = 0; 
+let currentLevel = 1;
+let points = 0;
 
 let gameStarted = false;
 let lastTimestamp;
@@ -63,16 +63,16 @@ window.onload = function () {
     board.height = boardHeight;
     context = board.getContext("2d");
 
-    
+
     shipImg = new Image();
     shipImg.src = "./Imagenes_ProtegeLaHuerta/ship.png";
     shipImg.onload = function () {
         context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
-    }
+    };
 
     alienImg = new Image();
     alienImg.src = "Imagenes_ProtegeLaHuerta/raton .png";
-    createLevel(currentLevel); 
+    createLevel(currentLevel);
 
     alienEspecialImg = new Image();
     alienEspecialImg.src = "Imagenes_ProtegeLaHuerta/gusano.png";
@@ -87,10 +87,10 @@ window.onload = function () {
     document.addEventListener("contextmenu", function (e) {
         shoot(e, "normal");
     });
- 
+
     document.addEventListener("keydown", function (e) {
         if (e.code === "ArrowLeft" || e.code === "ArrowRight") {
-            e.preventDefault(); 
+            e.preventDefault();
             handleMoveShip(e.code);
         }
     });
@@ -100,22 +100,22 @@ window.onload = function () {
             stopMoveShip();
         }
     });
-}
+};
 
 function startGame() {
     if (!gameStarted) {
 
-            gameStarted = true;
-            lastTimestamp = performance.now();
-            requestAnimationFrame(update);
+        gameStarted = true;
+        lastTimestamp = performance.now();
+        requestAnimationFrame(update);
 
-            document.getElementById("startButton").style.display = "none";
-            document.getElementById("custom-dialog").style.display = "none";
+        document.getElementById("startButton").style.display = "none";
+        document.getElementById("custom-dialog").style.display = "none";
     }
 }
 
 function redirectToOtherPage() {
-    
+
     console.log("Redirigiendo a otra página");
     window.location.href = 'space_defenders_caña.html';
 }
@@ -141,7 +141,7 @@ function restartGame() {
     score = 0;
     currentLevel = 1;
     points = 0;
-    
+
     location.reload();
 }
 
@@ -223,9 +223,9 @@ function update() {
 
             if (alien.tipo === "especial") {
                 context.drawImage(alienEspecialImg, alien.x, alien.y, alien.width, alien.height);
-            } else if (alien.tipo == "especial2"){
+            } else if (alien.tipo == "especial2") {
                 context.drawImage(alienEspecial2Img, alien.x, alien.y, alien.width, alien.height);
-            }else{
+            } else {
                 context.drawImage(alienImg, alien.x, alien.y, alien.width, alien.height);
             }
 
@@ -247,7 +247,7 @@ function update() {
                 handleCollision(bullet, alien);
             }
         }
-        
+
     }
 
     while (bulletArray.length > 0 && (bulletArray[0].used || bulletArray[0].y < 0)) {
@@ -255,16 +255,16 @@ function update() {
     }
 
     if (alienCount == 0) {
-        points += currentLevel * 100; 
-        currentLevel++; 
-        updateLevel(); 
+        points += currentLevel * 100;
+        currentLevel++;
+        updateLevel();
     }
 
     context.fillStyle = "white";
     context.font = "16px courier";
     context.fillText("Score: " + score, 5, 20);
-    context.fillText("Points: " + points, 5, 40); 
-    context.fillText("Level: " + currentLevel, 5, 60); 
+    context.fillText("Points: " + points, 5, 40);
+    context.fillText("Level: " + currentLevel, 5, 60);
 }
 
 function handleMoveShip(direction) {
@@ -283,10 +283,8 @@ function moveShipWithMouse(e) {
 
     const mouseX = e.clientX - board.getBoundingClientRect().left;
 
-    
     ship.x = mouseX - ship.width / 2;
 
-    
     ship.x = Math.max(0, Math.min(ship.x, board.width - ship.width));
 
     context.clearRect(0, 0, board.width, board.height);
@@ -356,7 +354,7 @@ function shoot(e) {
 }
 
 function resetShoot() {
-    
+
 }
 
 function handleShoot(e, alienType) {
@@ -366,14 +364,14 @@ function handleShoot(e, alienType) {
 
     e.preventDefault();
 
-    let bulletColor = "white"; 
+    let bulletColor = "white";
 
     switch (e.code) {
         case "Space":
             bulletColor = "white";
             break;
-        case "ContextMenu": 
-            alienType = "normal"; 
+        case "ContextMenu":
+            alienType = "normal";
             break;
         case "KeyW":
             bulletColor = "red";
@@ -407,17 +405,25 @@ function detectCollision(a, b) {
 
 function handleCollision(bullet, alien) {
     bullet.used = true;
-    alien.alive = false;
-    alienCount--;
 
-    if (alien.tipo === "normal" && bullet.color === "white") {
-        score += 100;
-    } else if (alien.tipo === "especial" && bullet.color === "red") {
-        score += 300;
-    } else if (alien.tipo === "especial2" && bullet.color === "blue") {
-        score += 500;
+    // Verificar si el tipo de bala coincide con el tipo de alienígena
+    if ((alien.tipo === "normal" && bullet.alienType === "normal") ||
+        (alien.tipo === "especial" && bullet.alienType === "especial") ||
+        (alien.tipo === "especial2" && bullet.alienType === "especial2")) {
+
+        alien.alive = false;
+        alienCount--;
+
+        if (bullet.alienType === "normal") {
+            score += 100;
+        } else if (bullet.alienType === "especial") {
+            score += 300;
+        } else if (bullet.alienType === "especial2") {
+            score += 500;
+        }
     }
 }
+
 
 function handleKeyPress(e) {
     if (gameOver) return;
@@ -446,8 +452,3 @@ function handleKeyUp(e) {
             break;
     }
 }
-
-
-
-
-

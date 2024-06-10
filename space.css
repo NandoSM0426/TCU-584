@@ -18,7 +18,8 @@ header{
 
 #gameTitle {
     color: white;
-    padding: 20px 0;
+    padding: 10px;
+    margin: 0;
     text-align: center;
 }
 
@@ -41,6 +42,45 @@ header{
 .game-menu {
     margin-bottom: 20px;
     text-align: center;
+    
+}
+
+.juegoYmini {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#PrimerNivel{
+    background-color: rgba(172, 135, 94, 0.685);
+}
+
+#SegundoNivel{
+    background-color: rgba(190, 184, 96, 0.685);
+}
+
+.miniInstrucciones {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    margin: 0 auto;
+    height: 200px; /* Ajusta la altura según tus necesidades */
+}
+
+.miniInstrucciones ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.miniInstrucciones li {
+    margin-bottom: 10px;
+}
+
+.miniInstrucciones img {
+    margin-right: 5px;
 }
 
 #custom-dialog {
